@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>SUrvival Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+
+</head>
+<div class="text-end">
+  <!--<button type="button" class="btn btn-outline-light me-2">Login</button>
+  <button type="button" class="btn btn-warning">Sign-up</button>-->
+  <a type="button" class="btn_n btn-warning" href="/Logout">Logout</a>
+</div>
+
+
+
+<body>
+ <div class="login">
+	<h1> Predicting the survival chances of titanic passengers</h1>
+  <p>0 for not suvived and 1 for SURVIVED </p>
+
+     <h3>Please enter valid data</h3>
+    
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="pclass" placeholder="Pclass(1,2 or 3)" required="required" />
+    <input type="text" name="sex" placeholder="Sex(0 or1)" required="required" />
+		<input type="text" name="age" placeholder="your age" required="required" />
+
+		<input type="text" name="sibsp" placeholder="sibsp(0,1or 2)" required="required" />
+    <input type="text" name="parch" placeholder="parch(0,1or2)" required="required" />
+    <input type="text" name="fare" placeholder="fare/price" required="required" />
+    <input type="text" name="cabin " placeholder="cabin" required="required" />
+    <input type="text" name="embarked" placeholder="embarked(S,C or Q)" required="required" />
+    <input type="text" name="title" placeholder="title(Miss/Mrs..)" required="required" />
+
+
+
+
+        <button type="submit" class="btn">Suvival Predict</button>
+    </form>
+
+   <br>
+   <br>
+   <div style="font-size: 30px;
+   text-align:center;
+   color: azure;">
+   {{ prediction_text }}
+  </div>
+
+ </div>
+
+
+</body>
+</html>
